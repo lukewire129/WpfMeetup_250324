@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ChatMessage/Assets/MessageStyle.axaml" value="ChatMessage/ChatMessage.csproj" />
+        <entry key="ChatMessage/Views/MainWindow.axaml" value="ChatMessage/ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/App.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/ChannelRoomView.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/ChannelView.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/LoginContent.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/LoginView.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/MainContent.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/MainView.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+        <entry key="ably_ChatMessage/Views/MainWindow.axaml" value="ably_ChatMessage/ably_ChatMessage.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
