@@ -1,0 +1,67 @@
+<Window
+    Icon="/Assets/avalonia-logo.ico"
+    Title="ChatMessage"
+    d:DesignHeight="982"
+    d:DesignWidth="1512"
+    mc:Ignorable="d"
+    x:Class="ChatMessage.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:ChatMessage.Models"
+    xmlns:vm="using:ChatMessage.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Window.Styles>
+        <StyleInclude Source="avares://ChatMessage/Assets/MessageStyle.axaml" />
+    </Window.Styles>
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="390, *">
+        <Grid Grid.Column="1" RowDefinitions="*, 90">
+            <ScrollViewer>
+                <ItemsControl Grid.Row="0" ItemsSource="{Binding Messages}">
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="models:MeMessageModel">
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0">
+                                        <Run Classes="Time" Text="{Binding Time, StringFormat={}{0:hh:mm tt}}" />
+                                        <Run Text="  " />
+                                        <Run Classes="Name" Text="{Binding Name}" />
+                                    </TextBlock>
+                                    <ContentControl Classes="MeMessage">
+                                        <TextBlock Classes="MeMessageText" Text="{Binding Text}" />
+                                    </ContentControl>
+                                </StackPanel>
+                                <Image Source="{Binding Profile}" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </DataTemplate>
+                        <DataTemplate DataType="models:YouMessageModel">
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Image Source="{Binding Profile}" VerticalAlignment="Top" />
+                                <StackPanel HorizontalAlignment="Left">
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0">
+                                        <Run Classes="Time" Text="{Binding Time, StringFormat={}{0:hh:mm tt}}" />
+                                        <Run Text="  " />
+                                        <Run Classes="Name" Text="{Binding Name}" />
+                                    </TextBlock>
+                                    <ContentControl Classes="YouMessage">
+                                        <TextBlock Classes="YouMessageText" Text="{Binding Text}" />
+                                    </ContentControl>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

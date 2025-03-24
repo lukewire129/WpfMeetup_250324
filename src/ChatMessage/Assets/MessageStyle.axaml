@@ -1,0 +1,117 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Height="500" Padding="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock>
+                    <Run Classes="Time" Text="10:30 오전" />
+                    <Run Classes="Name" Text="Jack Raymonds" />
+                </TextBlock>
+                <Grid Background="Blue">
+                    <TextBlock Classes="MeMessageText" Text="Hi," />
+                </Grid>
+                <Grid Background="White">
+                    <TextBlock Classes="YouMessageText" Text="Hi," />
+                </Grid>
+                <ContentControl Classes="MeMessage">
+                    <TextBlock Classes="MeMessageText" Text="Can't wait for the weekend!" />
+                </ContentControl>
+                <ContentControl Classes="YouMessage">
+                    <TextBlock
+                        Classes="YouMessageText"
+                        Text="Absolutely! I'm thinking of going for a hike on Saturday. How  about you?"
+                        TextWrapping="WrapWithOverflow" />
+                </ContentControl>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Run.Time">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Inter" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="Foreground" Value="#A0A0A0" />
+    </Style>
+
+    <Style Selector="Run.Name">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="Inter" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Foreground" Value="#515151" />
+    </Style>
+
+    <Style Selector="TextBlock.MeMessageText">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Inter" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+    </Style>
+
+    <Style Selector="TextBlock.YouMessageText">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Inter" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="Foreground" Value="#515151" />
+        <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+    </Style>
+
+    <Style Selector="ContentControl.MeMessage">
+        <Setter Property="Background" Value="#00A3FF" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="MaxWidth" Value="445" />
+        <Setter Property="MinHeight" Value="54" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ContentControl">
+                <Grid
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    Margin="10"
+                    VerticalAlignment="Center">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BoxShadow="2 2 12 0 #D1D1D1"
+                        CornerRadius="10"
+                        Padding="24,16">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                    <Rectangle
+                        Fill="{TemplateBinding Background}"
+                        Height="10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Width="10" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="ContentControl.YouMessage">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="MaxWidth" Value="611" />
+        <Setter Property="MinHeight" Value="54" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ContentControl">
+                <Grid
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    Margin="10"
+                    VerticalAlignment="Center">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BoxShadow="2 2 12 0 #D1D1D1"
+                        CornerRadius="10"
+                        Padding="24,16">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                    <Rectangle
+                        Fill="{TemplateBinding Background}"
+                        Height="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="10" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
