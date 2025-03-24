@@ -1,0 +1,23 @@
+<UserControl
+    Height="500"
+    Width="390"
+    d:DesignHeight="500"
+    d:DesignWidth="390"
+    mc:Ignorable="d"
+    x:Class="ably_ChatMessage.Views.ChannelView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ably_ChatMessage.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.DataContext>
+        <viewModels:ChannelViewModel />
+    </Design.DataContext>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBox Text="{Binding ChannelName}" Watermark="ChannelName" />
+        <CheckBox Content="UseHistory" IsChecked="{Binding UseHistory}" />
+        <CheckBox Content="UseRewind" IsChecked="{Binding UseRewind}" />
+        <Button Command="{Binding ChannelEntryCommand}" Content="입장" />
+    </StackPanel>
+
+</UserControl>

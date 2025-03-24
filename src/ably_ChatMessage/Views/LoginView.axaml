@@ -1,0 +1,39 @@
+<UserControl
+    Background="#2d2d2d2d"
+    CornerRadius="5"
+    Height="500"
+    Width="390"
+    d:DesignHeight="500"
+    d:DesignWidth="390"
+    mc:Ignorable="d"
+    x:Class="ably_ChatMessage.Views.LoginView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ably_ChatMessage.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.DataContext>
+        <viewModels:LoginViewModel />
+    </Design.DataContext>
+    <UserControl.Styles>
+        <Style Selector="StackPanel &gt; TextBox">
+            <Setter Property="Width" Value="300" />
+        </Style>
+        <Style Selector="StackPanel &gt; Button">
+            <Setter Property="Width" Value="300" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel
+        HorizontalAlignment="Center"
+        Spacing="10"
+        VerticalAlignment="Center">
+        <TextBox Text="{Binding Id}" Watermark="아이디" />
+        <TextBox Text="{Binding Password}" Watermark="PW" />
+        <Button
+            Command="{Binding LoginCommand}"
+            Content="로그인"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            Margin="0,20,0,0" />
+    </StackPanel>
+</UserControl>

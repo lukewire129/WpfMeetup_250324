@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatMessage", "ChatMessage\ChatMessage.csproj", "{D6422339-EFE8-437F-9730-F09D4719B00A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ably_ChatMessage", "ably_ChatMessage\ably_ChatMessage.csproj", "{0FF21AE9-2A86-4C74-B8B3-12672A82B54E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D6422339-EFE8-437F-9730-F09D4719B00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6422339-EFE8-437F-9730-F09D4719B00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6422339-EFE8-437F-9730-F09D4719B00A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FF21AE9-2A86-4C74-B8B3-12672A82B54E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF21AE9-2A86-4C74-B8B3-12672A82B54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF21AE9-2A86-4C74-B8B3-12672A82B54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF21AE9-2A86-4C74-B8B3-12672A82B54E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

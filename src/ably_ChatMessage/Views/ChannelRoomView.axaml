@@ -1,0 +1,158 @@
+<UserControl
+    Height="982"
+    Width="1512"
+    mc:Ignorable="d"
+    x:Class="ably_ChatMessage.Views.ChannelRoomView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:ably_ChatMessage.Models"
+    xmlns:viewModels="clr-namespace:ably_ChatMessage.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Styles>
+        <Style Selector="Run.Time">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="Inter" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="Foreground" Value="#A0A0A0" />
+        </Style>
+
+        <Style Selector="Run.Name">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily" Value="Inter" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="#515151" />
+        </Style>
+
+        <Style Selector="TextBlock.MeMessageText">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Inter" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+        </Style>
+
+        <Style Selector="TextBlock.YouMessageText">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Inter" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="Foreground" Value="#515151" />
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+        </Style>
+
+        <Style Selector="ContentControl.MeMessage">
+            <Setter Property="Background" Value="#00A3FF" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="MaxWidth" Value="445" />
+            <Setter Property="MinHeight" Value="54" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        Margin="10"
+                        VerticalAlignment="Center">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BoxShadow="2 2 12 0 #D1D1D1"
+                            CornerRadius="10"
+                            Padding="24,16">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </Border>
+                        <Rectangle
+                            Fill="{TemplateBinding Background}"
+                            Height="10"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Width="10" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="ContentControl.YouMessage">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="MaxWidth" Value="611" />
+            <Setter Property="MinHeight" Value="54" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        Margin="10"
+                        VerticalAlignment="Center">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BoxShadow="2 2 12 0 #D1D1D1"
+                            CornerRadius="10"
+                            Padding="24,16">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </Border>
+                        <Rectangle
+                            Fill="{TemplateBinding Background}"
+                            Height="10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="10" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+    <Design.DataContext>
+        <viewModels:ChannelRoomViewModel />
+    </Design.DataContext>
+    <Grid ColumnDefinitions="390, *" Margin="0,50">
+        <Grid Grid.Column="1" RowDefinitions="*, 90">
+            <ScrollViewer x:Name="Viewer">
+                <ItemsControl Grid.Row="0" ItemsSource="{Binding Messages}">
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="models:MeMessageModel">
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0">
+                                        <Run Classes="Time" Text="{Binding Time, StringFormat={}{0:hh:mm tt}}" />
+                                        <Run Text="  " />
+                                        <Run Classes="Name" Text="{Binding Name}" />
+                                    </TextBlock>
+                                    <ContentControl Classes="MeMessage">
+                                        <TextBlock Classes="MeMessageText" Text="{Binding Text}" />
+                                    </ContentControl>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                        <DataTemplate DataType="models:YouMessageModel">
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <StackPanel HorizontalAlignment="Left">
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0">
+                                        <Run Classes="Time" Text="{Binding Time, StringFormat={}{0:hh:mm tt}}" />
+                                        <Run Text="  " />
+                                        <Run Classes="Name" Text="{Binding Name}" />
+                                    </TextBlock>
+                                    <ContentControl Classes="YouMessage">
+                                        <TextBlock Classes="YouMessageText" Text="{Binding Text}" />
+                                    </ContentControl>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                </ItemsControl>
+            </ScrollViewer>
+            <StackPanel
+                Background="#d2d2d2"
+                Grid.Row="1"
+                Orientation="Horizontal">
+                <TextBox
+                    BorderThickness="0"
+                    Text="{Binding Message}"
+                    Width="1000" />
+                <Button
+                    Command="{Binding SendCommand}"
+                    Content="전송"
+                    Height="70"
+                    Width="70" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
