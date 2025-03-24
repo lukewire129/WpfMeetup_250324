@@ -1,4 +1,5 @@
 # WpfMeetup_250324
+![image](https://github.com/user-attachments/assets/d762739a-7934-4fc3-895f-59252a6e5050)
 
 본 자료는 모델(Model), 뷰 모델(ViewModel), 스타일(Styles), 뷰(View) 과정을 중심으로 설명됩니다. 이를 이해하면 전체적인 구조를 쉽게 파악할 수 있습니다.
 
